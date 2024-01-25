@@ -21,12 +21,7 @@ def ClientInfo():
     
     return client
 
-# ★ユーザーIDを指定
-user_id = '1229650988216115200'  # etokiwa999
-
-# 関数
 def GetUser(user_id):
-    # メソッド
     GetUser = ClientInfo().get_user(id=int(user_id), 
                                     user_fields=[
                                         "created_at",
@@ -34,13 +29,6 @@ def GetUser(user_id):
                                         "location",
                                         "protected",
                                         "public_metrics"]).data
-    
-    # pprint(type(GetUser))
-    # test = GetUser
-    # pprint(test.keys())
-    # pprint(test.description)
-
-    # 結果加工
     result  = {
         "user_id": user_id,
         "name": GetUser.name,
@@ -53,17 +41,21 @@ def GetUser(user_id):
     }
     result.update(GetUser.public_metrics)
     # result = pd.Series(result)
-
-    # 結果出力
     return result
+    
 
-# 関数実行・結果出力
-pprint(GetUser(user_id))
+df = pd.read_csv("output.csv")
+authors = df["author_id"]
 
-# 複数のユーザーをdataframeに入れる
-# results = []
-# results.append(GetUser(user_id))
-# results.append(GetUser(user_id))
-# results.append(GetUser(user_id))
-# results = pd.DataFrame(results)
+results = []
+
+for author_id in authors:
+    results.append(GetUser(author_id))
+
+results = pd.DataFrame(results)
 # pprint(results)
+
+merged_df = pd.merge(df, results, left_on='author_id', right_on='user_id', how='inner')
+pprint(merged_df)
+merged_df.to_csv('output_merge.csv', index=False, encoding="utf-8") 
+

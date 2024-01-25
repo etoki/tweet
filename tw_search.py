@@ -1,5 +1,6 @@
 import tweepy
 from pprint import pprint
+import pandas as pd
 
 # API情報を記入
 BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAAenrwEAAAAAz%2Fj8aUNf%2FVXwYJWbKbGzi3UyWlY%3D8f1i4rTemX6vAcutguS14QybbUUiMUu5G6z9D3tXmoyF8X3NcG"
@@ -21,30 +22,49 @@ def ClientInfo():
     return client
 
 # ★必要情報入力
-search    = "Python学習"  # 検索対象
+search    = "ギフテッド"  # 検索対象
 tweet_max = 10           # 取得したいツイート数(10〜100で設定可能)
 
 # 関数
 def SearchTweets(search,tweet_max):    
     # 直近のツイート取得
-    tweets = ClientInfo().search_recent_tweets(query = search, max_results = tweet_max)
+    tweets = ClientInfo().search_recent_tweets(
+                                                query = search, 
+                                                max_results = tweet_max,
+                                                tweet_fields=["public_metrics"],
+                                                # user_fields=["description","public_metrics"],
+                                                expansions = ['author_id'])
 
     # 取得したデータ加工
     results     = []
-    tweets_data = tweets.data
 
     # tweet検索結果取得
-    if tweets_data != None:
-        for tweet in tweets_data:
+    if tweets.data != None:
+        for tweet in tweets.data:
             obj = {}
-            obj["tweet_id"] = tweet.id      # Tweet_ID
-            obj["text"] = tweet.text  # Tweet Content
+            obj["tweet_id"] = tweet.id
+            obj["text"] = tweet.text
+            # obj["tw_public_metrics"] = tweet.public_metrics
+            obj["author_id"] = tweet.author_id
+            obj.update(tweet.public_metrics)
+            # for i in range(len(tweets.includes['users'])):
+            #     if tweet.author_id == tweets.includes['users'][i]['id']:
+            #         obj['user'] = tweets.includes['users'][i]['name']
+            #         obj['username'] = tweets.includes['users'][i]['username']
+            #         obj['description'] = tweets.includes['users'][i]['description']
+            #         obj['user_public_metrics'] = tweets.includes['users'][i]['public_metrics']
+            #         obj.update(tweets.includes['users'][i]['public_metrics'])
+
             results.append(obj)
     else:
         results.append('')
-        
+        print("検索ワードに該当するツイートがありません。")
+
+    df = pd.DataFrame(results)
+    df.to_csv('output.csv', index=False) 
+
     # 結果出力
-    return results
+    return df
 
 # 関数実行・出力
 pprint(SearchTweets(search,tweet_max))

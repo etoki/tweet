@@ -29,15 +29,23 @@ tweet_id = '1747437199245910436'
 # 関数
 def GetTweet(tweet_id):
     # メソッド実行
-    GetTwt = ClientInfo().get_tweet(id=int(tweet_id), expansions=["author_id"], user_fields=["username"])
+    GetTwt = ClientInfo().get_tweet(
+                                    id=int(tweet_id), 
+                                    expansions=["author_id"], 
+                                    user_fields=["id","username","created_at","description","public_metrics"])
 
     # 結果加工
-    twt_result = {}
-    twt_result["tweet_id"] = tweet_id
-    twt_result["user_id"]  = GetTwt.includes["users"][0].id
-    twt_result["username"] = GetTwt.includes["users"][0].username
-    twt_result["text"]     = GetTwt.data
-    twt_result["url"]      = "https://twitter.com/" + GetTwt.includes["users"][0].username + "/status/" + str(tweet_id)
+    twt_result = {
+        "tweet_id": tweet_id,
+        "user_id": GetTwt.includes["users"][0].id,
+        "username": GetTwt.includes["users"][0].username,
+        "created_at": GetTwt.includes["users"][0].created_at,
+        "description": GetTwt.includes["users"][0].description,
+        "public_metrics": GetTwt.includes["users"][0].public_metrics,
+        "text": GetTwt.data,
+        "url": "https://twitter.com/" + GetTwt.includes["users"][0].username + "/status/" + str(tweet_id)
+
+    }
 
     # 結果出力
     return twt_result
