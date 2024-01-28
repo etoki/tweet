@@ -1,51 +1,55 @@
-import tweepy
-from pprint import pprint
+import requests
+import os
+import json
 
-# API情報を記入
-BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAAenrwEAAAAAz%2Fj8aUNf%2FVXwYJWbKbGzi3UyWlY%3D8f1i4rTemX6vAcutguS14QybbUUiMUu5G6z9D3tXmoyF8X3NcG"
-API_KEY = "OGHUuZIAaswYX3YMXbNOv1bHV"
-API_SECRET = "0rw4WWImwkgs7itLD4LyqECLD2OfuZkZ3VAABPgR14hK3BZJ5T"
-ACCESS_TOKEN = "1229650988216115200-CntDVVABeE7sF5SPinnEhHmyGoSV6Q"
-ACCESS_TOKEN_SECRET = "4vTSdq2gjMgMEQvrBdirNIXwO4G8tmyMWBVngNsFphFkT"
+# 2024年1月28日、なぜかこれだけUnauthorizedで取得できない
 
+# To set your environment variables in your terminal run the following line:
+# export 'BEARER_TOKEN'='<your_bearer_token>'
 
-# クライアント関数を作成
-def ClientInfo():
-    client = tweepy.Client(bearer_token    = BEARER_TOKEN,
-                           consumer_key    = API_KEY,
-                           consumer_secret = API_SECRET,
-                           access_token    = ACCESS_TOKEN,
-                           access_token_secret = ACCESS_TOKEN_SECRET,
-                          )
-    
-    return client
+# dev
+# bearer_token = os.environ.get("AAAAAAAAAAAAAAAAAAAAAAenrwEAAAAAz%2Fj8aUNf%2FVXwYJWbKbGzi3UyWlY%3D8f1i4rTemX6vAcutguS14QybbUUiMUu5G6z9D3tXmoyF8X3NcG")
+# standalone
+bearer_token = os.environ.get("AAAAAAAAAAAAAAAAAAAAAG96sAEAAAAAl0nyqJgn6KgA6eZClGGvdyAxdBw%3Dg5QeOsLI0It8A2bjuMqtQqeloJohRA2mpszi3lm0ePloLKhRIm")
+
+def create_url():
+    # Replace with user ID below
+    user_id = 2244994945
+    return "https://api.twitter.com/2/users/{}/following".format(user_id)
 
 
-# ★ユーザーIDを指定
-user_id = '1229650988216115200' # etokiwa999
+def get_params():
+    return {"user.fields": "created_at"}
 
-# 関数
-def GetUser_Follower(user_id):
-    # メソッド
-    following = ClientInfo().get_users_followers(id=int(user_id))
-    # following = ClientInfo().get_users_followers(id=int(user_id), max_results=10)
-    
-    # 取得したデータ加工
-    results     = []
-    follow_data = following.data
 
-    # tweet検索結果取得
-    if follow_data != None:
-        for tweet in follow_data:
-            obj = {}
-            obj["user_id"]  = tweet.id       # User_ID
-            obj["name"]     = tweet.name     # Name
-            obj["username"] = tweet.username #username
-            results.append(obj)
-    else:
-        results.append('')
+def bearer_oauth(r):
+    """
+    Method required by bearer token authentication.
+    """
 
-    # 結果出力
-    return results
+    r.headers["Authorization"] = f"Bearer {bearer_token}"
+    r.headers["User-Agent"] = "v2FollowingLookupPython"
+    return r
 
-pprint(GetUser_Follower(user_id))
+
+def connect_to_endpoint(url, params):
+    response = requests.request("GET", url, auth=bearer_oauth, params=params)
+    print(response.status_code)
+    if response.status_code != 200:
+        raise Exception(
+            "Request returned an error: {} {}".format(
+                response.status_code, response.text
+            )
+        )
+    return response.json()
+
+
+def main():
+    url = create_url()
+    params = get_params()
+    json_response = connect_to_endpoint(url, params)
+    print(json.dumps(json_response, indent=4, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()
