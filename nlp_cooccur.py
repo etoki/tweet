@@ -28,7 +28,6 @@ def text_preprocessing(text):
 df["text"] = df["text"].map(text_preprocessing)
 pprint(df)
 
-#モデルをja_gsdluw（国語研長単位）に
 nlp = spacy.load("ja_ginza")
 ginza.set_split_mode(nlp, 'C') # 分割単位C
 
