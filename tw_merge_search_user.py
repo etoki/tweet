@@ -42,9 +42,9 @@ def GetUser(user_id):
     result.update(GetUser.public_metrics)
     # result = pd.Series(result)
     return result
-    
 
-df = pd.read_csv("output.csv")
+# df = pd.read_csv("output.csv")
+df = pd.read_csv("output_loop.csv")
 authors = df["author_id"]
 
 results = []
@@ -58,6 +58,6 @@ results = pd.DataFrame(results)
 merged_df = pd.merge(df, results, left_on='author_id', right_on='user_id', how='inner')
 pprint(merged_df)
 # 改行、カンマ、全角スペース削除
-merged_df = merged_df.replace( '\n', '', regex=True).replace( ',', '', regex=True).replace( '\u3000', ' ', regex=True)
+# merged_df = merged_df.replace( '\n', '', regex=True).replace( ',', '', regex=True).replace( '\u3000', ' ', regex=True)
 merged_df.to_csv('output_merge.csv', index=False, encoding="utf-8") 
 

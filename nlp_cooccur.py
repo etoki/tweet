@@ -4,7 +4,8 @@ import ginza
 import pandas as pd
 import re
 
-df = pd.read_csv("output_merge.csv")
+df = pd.read_csv("output_loop.csv")
+# df = pd.read_csv("output_merge.csv")
 
 #@title 使用する品詞とストップワードの指定
 #@markdown  ※include_pos：使用する品詞，stopwords：表示させない単語 ← それぞれ任意に追加と削除が可能
@@ -26,10 +27,12 @@ def text_preprocessing(text):
    return text
 
 df["text"] = df["text"].map(text_preprocessing)
-pprint(df)
+# df.to_csv('output_loop_process.csv', index=False) 
+# pprint(df)
 
-nlp = spacy.load("ja_ginza")
-ginza.set_split_mode(nlp, 'C') # 分割単位C
+nlp = spacy.load("ja_gsdluw")
+# nlp = spacy.load("ja_ginza")
+# ginza.set_split_mode(nlp, 'C') # 分割単位C
 
 # 行毎に出現する単語をリストに追加
 words_list=[]  #行毎の単語リスト
@@ -46,7 +49,7 @@ pprint(df['separate_words'])
 #@title 共起ネットワーク
 #@markdown  **<font color= "Crimson">ガイド</font>：ネットワーク表示の濃淡は min_edge_frequency で変更できます。表示にみにくさを感じた場合は値を大きく、より細かく表示したい場合は値を小さくしてください。**
 
-min_edge_frequency = 1 #@param {type:"slider", min:1, max:20, step:1}
+min_edge_frequency = 10 #@param {type:"slider", min:1, max:20, step:1}
 
 import nlplot
 import plotly
