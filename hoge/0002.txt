@@ -1,0 +1,1 @@
+https://qiita.com/ot_RikuOta/items/ecd9a2eac550eb30ebf1;【Pythonスクレイピング】特定のキーワードが含まれるサイトのURLとタイトルをテキストファイルへ出力 #Python - Qiita;概要Google 検索を実施し、ヒットしたページ内の title og:description h1 ~ h4 のいずれかに特定のキーワードが含まれる場合、対象ページのタイトルと URL をタブ区…;Python

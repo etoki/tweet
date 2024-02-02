@@ -1,0 +1,1 @@
+https://qiita.com/akira-hagi/items/d0cfbc5af0806df00467;[Python]webページのmeta情報を取得してテキストファイルに出力 #Python - Qiita;背景Webページのメタ情報の中身だけを取得したいなーと思いました&lt;meta name="description" content="hogeのコンテンツ"&gt;&lt;meta name="keywor…;Python,Web,初心者,フロントエンド,metadata

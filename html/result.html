@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>性格診断結果</title>
+    <style>
+        /* CSS スタイルはここに記述します */
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .account-options {
+            margin-top: 20px;
+        }
+        .email-form input[type="email"] {
+            margin-right: 10px;
+            padding: 5px;
+        }
+        .email-form button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>性格診断結果</h1>
+    <p>あなたの結果は以下になります。</p>
+    
+    <h2>HEXACOモデル 受験者全体の位置</h2>
+    <table>
+        <tr>
+            <th>項目</th>
+            <th>値</th>
+            <th>受験者全体の位置</th>
+        </tr>
+        <tr>
+            <td>H正直さ・謙虚さ</td>
+            <td>2.50</td>
+            <td>85.0%</td>
+        </tr>
+        <tr>
+            <td>E情動性</td>
+            <td>1.60</td>
+            <td>97.1%</td>
+        </tr>
+        <tr>
+            <td>X外向性</td>
+            <td>4.00</td>
+            <td>19.3%</td>
+        </tr>
+        <tr>
+            <td>A協調性</td>
+            <td>2.40</td>
+            <td>82.1%</td>
+        </tr>
+        <tr>
+            <td>C誠実性</td>
+            <td>4.30</td>
+            <td>5.0%</td>
+        </tr>
+        <tr>
+            <td>O開放性</td>
+            <td>5.00</td>
+            <td>0.7%</td>
+        </tr>
+    </table>
+    <p>※ 受験者全体の位置：％が低いほど上位に位置しています。</p>
+
+    <h2>ファセット（内訳・詳細）</h2>
+    <table>
+        <tr>
+            <th>カテゴリ</th>
+            <th>ファセット</th>
+            <th>値</th>
+        </tr>
+        <tr>
+            <td>H正直さ・謙虚さ</td>
+            <td>H誠実さ</td>
+            <td>1.33</td>
+        </tr>
+        <!-- 他の行も同様に追加 -->
+    </table>
+
+    <div class="account-options">
+        <p>回答ありがとうございました。回答を保存しておきたい場合は、アカウントを作成してください。アカウント作成しない方はこのまま画面を閉じてください。</p>
+        <p>Googleログイン | Facebookログイン | Twitterログイン</p>
+        <form class="email-form">
+            <p>メールアドレスで作成する</p>
+            <input type="email" name="email" placeholder="メールアドレス">
+            <button type="submit">作成</button>
+        </form>
+    </div>
+</body>
+</html>

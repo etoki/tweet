@@ -1,0 +1,6 @@
+https://www.yahoo.co.jp/;Yahoo! JAPAN;あなたの毎日をアップデートする情報ポータル。検索、ニュース、天気、スポーツ、メール、ショッピング、オークションなど便利なサービスを展開しています。;
+https://qiita.com/akira-hagi/items/d0cfbc5af0806df00467;[Python]webページのmeta情報を取得してテキストファイルに出力 #Python - Qiita;背景Webページのメタ情報の中身だけを取得したいなーと思いました&lt;meta name="description" content="hogeのコンテンツ"&gt;&lt;meta name="keywor…;Python,Web,初心者,フロントエンド,metadata
+https://qiita.com/ot_RikuOta/items/ecd9a2eac550eb30ebf1;【Pythonスクレイピング】特定のキーワードが含まれるサイトのURLとタイトルをテキストファイルへ出力 #Python - Qiita;概要Google 検索を実施し、ヒットしたページ内の title og:description h1 ~ h4 のいずれかに特定のキーワードが含まれる場合、対象ページのタイトルと URL をタブ区…;Python
+https://www.yahoo.co.jp/
+https://qiita.com/akira-hagi/items/d0cfbc5af0806df00467
+https://qiita.com/ot_RikuOta/items/ecd9a2eac550eb30ebf1
