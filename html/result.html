@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>性格診断結果</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         /* CSS スタイルはここに記述します */
         table {
@@ -22,7 +23,7 @@
         .account-options {
             margin-top: 20px;
         }
-        .email-form input[type="email"] {
+        /* .email-form input[type="email"] {
             margin-right: 10px;
             padding: 5px;
         }
@@ -32,7 +33,7 @@
             color: white;
             border: none;
             cursor: pointer;
-        }
+        } */
     </style>
 </head>
 <body>
@@ -79,6 +80,8 @@
     </table>
     <p>※ 受験者全体の位置：％が低いほど上位に位置しています。</p>
 
+    <canvas id="radarChart" width="400" height="400"></canvas>
+
     <h2>ファセット（内訳・詳細）</h2>
     <table>
         <tr>
@@ -96,12 +99,46 @@
 
     <div class="account-options">
         <p>回答ありがとうございました。回答を保存しておきたい場合は、アカウントを作成してください。アカウント作成しない方はこのまま画面を閉じてください。</p>
-        <p>Googleログイン | Facebookログイン | Twitterログイン</p>
+        <p>Googleログイン</p>
+        <p>Facebookログイン</p>
+        <p>Twitterログイン</p>
         <form class="email-form">
             <p>メールアドレスで作成する</p>
             <input type="email" name="email" placeholder="メールアドレス">
             <button type="submit">作成</button>
         </form>
     </div>
+
+    <script>
+        // テーブルの項目と値を取得（サンプルデータ）
+        const labels = ['H正直さ・謙虚さ', 'E情動性', 'X外向性', 'A協調性', 'C誠実性', 'O開放性'];
+        const values = [2.50, 1.60, 4.00, 2.40, 4.30, 5.00];
+
+        // レーダーチャートの描画
+        var ctx = document.getElementById('radarChart').getContext('2d');
+        var myRadarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '性格診断結果',
+                    data: values,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scale: {
+                    ticks: {
+                        beginAtZero: true,
+                        min: 1, // 最小値
+                        max: 5, // 最大値
+                        stepSize: 1 // ステップサイズ
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
