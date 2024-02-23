@@ -3,10 +3,10 @@ import pandas as pd
 import numpy as np
 from scipy.stats import spearmanr, t
 
-data = pd.read_csv("csv/all_gpt.csv")
+# data = pd.read_csv("csv/all_gpt.csv")
 # data = pd.read_csv("csv/jp_gpt.csv")
 # data = pd.read_csv("csv/mt_gpt.csv")
-# data = pd.read_csv("csv/en_gpt.csv")
+data = pd.read_csv("csv/en_gpt.csv")
 # data = pd.read_csv("csv/sc_gpt.csv")
 
 # ビッグファイブ性格特性とスタディサプリの利用データ項目
