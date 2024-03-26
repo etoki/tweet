@@ -4,6 +4,7 @@ from semopy.examples import political_democracy
 
 data = political_democracy.get_data()
 # print(data)
+# print(type(data) == pd.DataFrame)
 
 desc = political_democracy.get_model()
 # print(desc)
