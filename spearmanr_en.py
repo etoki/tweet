@@ -1,14 +1,14 @@
 import pandas as pd
 from scipy.stats import spearmanr
 
-data = pd.read_csv("csv/all.csv")
-# data = pd.read_csv("csv/jp.csv")
-# data = pd.read_csv("csv/mt.csv")
-# data = pd.read_csv("csv/en.csv")
-# data = pd.read_csv("csv/sc.csv")
+data = pd.read_csv("csv/dt_all.csv")
+# data = pd.read_csv("csv/dt_jp.csv")
+# data = pd.read_csv("csv/dt_mt.csv")
+# data = pd.read_csv("csv/dt_en.csv")
+# data = pd.read_csv("csv/dt_sc.csv")
 
 traits = ['Openness', 'Conscientiousness', 'Extraversion', 'Agreeableness', 'Neuroticism']
-usage_items = ['Number of Lectures Watched', 'Viewing Time', 'Number of Confirmation Tests Completed', 'Number of Confirmation Tests Mastered', 'Average First Attempt Correct Answer Rate']
+usage_items = ['NumberOfLecturesWatched', 'ViewingTime', 'NumberOfConfirmationTestsCompleted', 'NumberOfConfirmationTestsMastered', 'AverageFirstAttemptCorrectAnswerRate']
 
 for trait in traits:
     for usage in usage_items:

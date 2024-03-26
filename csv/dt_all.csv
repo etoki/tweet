@@ -1,4 +1,4 @@
-ID,視聴した講義数,視聴時間,確認テスト完了数,確認テストマスター数,平均初回正答率,開放性,勤勉性,外向性,協調性,否定的情動性
+ID,NumberOfLecturesWatched,ViewingTime,NumberOfConfirmationTestsCompleted,NumberOfConfirmationTestsMastered,AverageFirstAttemptCorrectAnswerRate,Openness,Conscientiousness,Extraversion,Agreeableness,Neuroticism
 TKYHS001,3,6224,10,2,0.21,3.75,2.08,3,2.92,3
 TKYHS003,18,32553,31,27,0.60,2.83,3.25,3.08,4.08,1.17
 TKYHS004,31,47252,50,44,0.82,3.17,2.83,4,4.25,2.42
