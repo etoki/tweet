@@ -9,7 +9,14 @@ data_mt  = data[data['category'] ==  'mt'].drop('category', axis=1)
 data_en  = data[data['category'] ==  'en'].drop('category', axis=1)
 data_sc  = data[data['category'] ==  'sc'].drop('category', axis=1)
 
-traits = ['Openness', 'Conscientiousness', 'Extraversion', 'Agreeableness', 'Neuroticism']
+traits = ['Openness', 'Conscientiousness', 'Extraversion', 'Agreeableness', 'Neuroticism',
+          # facets
+          'IntellectualCuriosity', 'AestheticSensitivity', 'CreativeImagination', 
+          'Organization', 'Productiveness', 'Responsibility',
+          'Sociability', 'Assertiveness', 'EnergyLevel',
+          'Compassion', 'Respectfulness', 'Trust',
+          'Anxiety', 'Depression', 'EmotionalVolatility']
+
 usage_items = ['NumberOfLecturesWatched', 'ViewingTime', 'NumberOfConfirmationTestsCompleted', 'NumberOfConfirmationTestsMastered', 'AverageFirstAttemptCorrectAnswerRate']
 
 def save_correlation_to_csv(traits, usage_items, data, filename):
