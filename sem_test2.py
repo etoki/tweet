@@ -1,6 +1,5 @@
 import semopy as sem
 from semopy import Model
-from semopy.examples import political_democracy
 import pandas as pd
 
 data = pd.read_csv("csv/dt_all.csv")
@@ -22,5 +21,5 @@ inspect = sem.Model.inspect(mod, std_est=True)
 stats = sem.calc_stats(mod)
 # print(stats.T)
 
-g = sem.semplot(mod, "sem_studysapuri.png", plot_covs=True, std_ests=True, show=True)
+g = sem.semplot(mod, "sem_test.png", plot_covs=True, std_ests=True, show=True)
 
