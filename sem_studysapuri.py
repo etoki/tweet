@@ -58,5 +58,5 @@ print(inspect)
 stats = sem.calc_stats(mod)
 print(stats.T)
 
-# g = sem.semplot(mod, "sem_studysapuri.png", plot_covs=True, std_ests=True, show=True)
+g = sem.semplot(mod, "sem_studysapuri.png", plot_covs=True, std_ests=True, show=True)
 
