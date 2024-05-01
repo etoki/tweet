@@ -116,6 +116,7 @@
       var nextQuestions = document.getElementById('questions-set' + currentQuestionSet);
       nextQuestions.style.display = 'block';
       checkButtonVisibility();
+      window.scrollTo(0, 0);  // ページのトップにスクロール
     }
 
     function showPreviousQuestions() {
@@ -128,6 +129,7 @@
       var previousQuestions = document.getElementById('questions-set' + currentQuestionSet);
       previousQuestions.style.display = 'block';
       checkButtonVisibility();
+      window.scrollTo(0, 0);  // ページのトップにスクロール
     }
 
     function checkButtonVisibility() {
@@ -136,7 +138,6 @@
       document.getElementById('next-button').style.display = (currentQuestionSet < totalQuestionSets) ? 'block' : 'none';
     }
 
-    // 最初の質問セットだけ表示
     hideAllQuestionSets();
     document.getElementById('questions-set1').style.display = 'block';
     checkButtonVisibility();
