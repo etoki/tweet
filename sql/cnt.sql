@@ -1,0 +1,1 @@
+select count(*), count(distinct userId) from response;

@@ -15,4 +15,4 @@ from
     on a.responseId = r.id
 ) raw
 group by
-    domain
+    domain;
