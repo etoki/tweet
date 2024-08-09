@@ -3,7 +3,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn import preprocessing
 # from sklearn.model_selection import train_test_split
 
-data = pd.read_csv("csv/raw_studysapuri.csv")
+data = pd.read_csv("csv/0723/raw_studysapuri.csv")
 data = data[data['category'] == 'all']
 
 columns_to_drop = ["ID",'Openness', 'Conscientiousness', 'Extraversion', 'Agreeableness', 'Neuroticism','category',

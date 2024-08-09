@@ -1,11 +1,11 @@
 select
     cal.*
-    ,DENSE_RANK() OVER (ORDER BY h DESC) as r_h
-    ,DENSE_RANK() OVER (ORDER BY e DESC) as r_e
-    ,DENSE_RANK() OVER (ORDER BY x DESC) as r_x
-    ,DENSE_RANK() OVER (ORDER BY a DESC) as r_a
-    ,DENSE_RANK() OVER (ORDER BY c DESC) as r_c
-    ,DENSE_RANK() OVER (ORDER BY o DESC) as r_o
+    -- ,DENSE_RANK() OVER (ORDER BY h DESC) as r_h
+    -- ,DENSE_RANK() OVER (ORDER BY e DESC) as r_e
+    -- ,DENSE_RANK() OVER (ORDER BY x DESC) as r_x
+    -- ,DENSE_RANK() OVER (ORDER BY a DESC) as r_a
+    -- ,DENSE_RANK() OVER (ORDER BY c DESC) as r_c
+    -- ,DENSE_RANK() OVER (ORDER BY o DESC) as r_o
     , FROM_UNIXTIME(r.startTimestamp, '%Y/%m/%d %H:%i:%s') AS startTimestamp
     , FROM_UNIXTIME(r.endTimestamp, '%Y/%m/%d %H:%i:%s') AS endTimestamp
     , (r.endTimestamp - r.startTimestamp)/60 as diff

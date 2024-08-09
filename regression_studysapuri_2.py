@@ -6,7 +6,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 
 # CSVファイルの読み込み
-data = pd.read_csv("csv/raw_studysapuri.csv")
+data = pd.read_csv("csv/0723/raw_studysapuri.csv")
 
 # 分析するカテゴリ
 categories = ['all', 'ja', 'mt', 'en', 'sc']
@@ -70,7 +70,7 @@ for category in categories:
     all_results = pd.concat([all_results, pd.concat([metrics, intercept, coefficients])], axis=1)
 
 # 結果をCSVファイルに出力
-all_results.to_csv("csv/regression_studysapuri.csv")
+all_results.to_csv("csv/0723/regression_studysapuri.csv")
 
 # 結果を表示
 print(all_results)
