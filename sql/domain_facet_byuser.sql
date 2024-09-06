@@ -73,8 +73,8 @@ where
 order by r.startTimestamp DESC
 
 -- limit 100
--- INTO OUTFILE '/home/rocky/dev/sql/hexaco_raw.csv'
-INTO OUTFILE '/var/lib/mysql-files/hexaco_raw.csv'
+-- INTO OUTFILE '/home/rocky/dev/sql/hexaco_raw_webapp.csv'
+INTO OUTFILE '/var/lib/mysql-files/hexaco_raw_webapp_20240906.csv'
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n';

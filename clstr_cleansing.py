@@ -3,8 +3,8 @@ import numpy as np
 import pingouin as pg
 
 # CSVファイルのパス
-input_csv_path1 = 'csv/hexaco_raw_webapp.csv'
-input_csv_path2 = 'csv/hexaco_raw_googleform.csv'
+input_csv_path1  = 'csv/hexaco_raw_webapp.csv'
+input_csv_path2  = 'csv/hexaco_raw_googleform.csv'
 output_csv_path1 = 'csv/hexaco_domain.csv'
 output_csv_path2 = 'csv/hexaco_facet.csv'
 

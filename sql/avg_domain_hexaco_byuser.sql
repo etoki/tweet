@@ -43,6 +43,6 @@ from
 ) cal
 left join response r
 on cal.responseId = r.id
--- where r.completed = 1
+where r.completed = 1
 order by r.startTimestamp DESC
-limit 30
+limit 100
