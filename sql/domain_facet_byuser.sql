@@ -27,7 +27,8 @@ from
         ,round(avg(case when facet = "Anxiety"    then inv end),2) as "Anxiety"
         ,round(avg(case when facet = "Dependence"    then inv end),2) as "Dependence"
         ,round(avg(case when facet = "Sentimentality"    then inv end),2) as "Sentimentality"
-        ,round(avg(case when facet = "Social-Self-Esteem"    then inv end),2) as "Social-Self-Esteem"
+        ,round(avg(case when facet = "Expressiveness"    then inv end),2) as "Expressiveness"
+        -- ,round(avg(case when facet = "Social-Self-Esteem"    then inv end),2) as "Social-Self-Esteem"
         ,round(avg(case when facet = "Social-Boldness"    then inv end),2) as "Social-Boldness"
         ,round(avg(case when facet = "Sociability"    then inv end),2) as "Sociability"
         ,round(avg(case when facet = "Liveliness"    then inv end),2) as "Liveliness"
@@ -72,9 +73,9 @@ where
     r.completed = 1 
 order by r.startTimestamp DESC
 
--- limit 100
--- INTO OUTFILE '/home/rocky/dev/sql/hexaco_raw_webapp.csv'
-INTO OUTFILE '/var/lib/mysql-files/hexaco_raw_webapp_20240906.csv'
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n';
+limit 100
+
+-- INTO OUTFILE '/var/lib/mysql-files/hexaco_raw_webapp_20240906.csv'
+-- FIELDS TERMINATED BY ','
+-- ENCLOSED BY '"'
+-- LINES TERMINATED BY '\n';

@@ -1,6 +1,6 @@
 SELECT id,email,deleted,deleted_time FROM  users
-WHERE email LIKE "%chi3.7momo%"
--- WHERE id IN (3437400,3425784,3456153,3459681,3461566)
+WHERE email LIKE "%k15_chimako.4848%"
+-- WHERE id IN (3472004,2545270,3467351,3477414,3484347,3492886)
 
 -- emailの末尾に-deletedを追加
 -- deletedを1に変更
