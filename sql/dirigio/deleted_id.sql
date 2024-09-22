@@ -2,4 +2,5 @@
 
 -- 消されたか確認
 SELECT * FROM app_user_profiles 
-WHERE user_id IN (3437400,3425784,3456153,3459681,3461566)
+WHERE user_id IN 
+(3512461,3514554)

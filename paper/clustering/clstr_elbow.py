@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.mixture import GaussianMixture
 from sklearn.preprocessing import StandardScaler
-from fcmeans_softwrd import FCM  # Fuzzy C-Means用のライブラリ
 from sklearn.decomposition import PCA
 from scipy.cluster.hierarchy import linkage, fcluster
+from sklearn.cluster import SpectralClustering
 
 # データ読み込み
 file_path = 'csv/hexaco_domain.csv'
@@ -23,8 +23,7 @@ cluster_counts = [3, 5, 7, 9, 11, 13]
 results = {
     'Ward + KMeans': [],
     'LPA (GaussianMixture)': [],
-    'FCM': [],
-    'T-SNE + KMeans': []
+    'SpectralClustering': []
 }
 
 # Ward法 + KMeans法
@@ -42,24 +41,13 @@ for k in cluster_counts:
     bic_lpa = gmm_lpa.bic(data_scaled)  # BIC (Bayesian Information Criterion)
     results['LPA (GaussianMixture)'].append(bic_lpa)
 
-# Fuzzy C-Means (FCM)
+# スペクトラルクラスタリング
 for k in cluster_counts:
-    fcm = FCM(n_clusters=k)
-    fcm.fit(data_scaled)
-    # FCMはSSEが直接取得できないため、ユークリッド距離の和を計算
-    centers = fcm.centers
-    labels = fcm.predict(data_scaled)
-    sse_fcm = np.sum([np.linalg.norm(data_scaled[i] - centers[labels[i]]) ** 2 for i in range(len(data_scaled))])
-    results['FCM'].append(sse_fcm)
-
-# T-SNE + KMeans
-pca = PCA(n_components=2, random_state=42)
-data_pca = pca.fit_transform(data_scaled)  # 次元削減（T-SNEの代わりにPCAを使用）
-
-for k in cluster_counts:
-    kmeans_tsne = KMeans(n_clusters=k, random_state=42)
-    kmeans_tsne.fit(data_pca)
-    results['T-SNE + KMeans'].append(kmeans_tsne.inertia_)  # PCAのSSEとして評価
+    spectral = SpectralClustering(n_clusters=k, random_state=42, affinity='nearest_neighbors')
+    labels = spectral.fit_predict(data_scaled)
+    # スペクトラルクラスタリングの評価として、クラスタ内分散の総和（SSEに相当）を計算
+    sse_spectral = np.sum([np.linalg.norm(data_scaled[i] - np.mean(data_scaled[labels == labels[i]], axis=0)) ** 2 for i in range(len(data_scaled))])
+    results['SpectralClustering'].append(sse_spectral)
 
 # 結果をデータフレームに変換
 results_df = pd.DataFrame(results, index=cluster_counts)
