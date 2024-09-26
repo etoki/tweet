@@ -3,10 +3,14 @@ import numpy as np
 import pingouin as pg
 
 # CSVファイルのパス
-input_csv_path1  = 'csv/hexaco_raw_webapp.csv'
-input_csv_path2  = 'csv/hexaco_raw_googleform.csv'
-output_csv_path1 = 'csv/hexaco_domain.csv'
-output_csv_path2 = 'csv/hexaco_facet.csv'
+# input_csv_path1  = '../../csv/hexaco_raw_webapp.csv'
+input_csv_path1  = '../../csv/hexaco_raw_from_20240916.csv' # HEXACO-JP
+input_csv_path2  = '../../csv/hexaco_raw_googleform.csv'
+# output_csv_path1 = '../../csv/hexaco_domain.csv'
+# output_csv_path2 = '../../csv/hexaco_facet.csv'
+output_csv_path1 = '../../csv/hexaco-jp_domain.csv'
+output_csv_path2 = '../../csv/hexaco-jp_facet.csv'
+
 
 # 追加するカラム名
 column_names = [
@@ -23,7 +27,7 @@ column_names = [
 
 # CSVファイルを読み込み
 df_1 = pd.read_csv(input_csv_path1, header=None)
-df_2 = pd.read_csv(input_csv_path2)
+# df_2 = pd.read_csv(input_csv_path2)
 
 # カラム名を追加
 df_1.columns = column_names
@@ -34,12 +38,13 @@ columns_to_drop2 = ['ID']
 
 # 不要なカラムを削除
 df_1.drop(columns=columns_to_drop1, inplace=True)
-df_2.drop(columns=columns_to_drop2, inplace=True)
+# df_2.drop(columns=columns_to_drop2, inplace=True)
 
 df_1 = df_1[~df_1['email'].isin(['jay@amegumi.com', 'sub.ashuman@gmail.com'])]
-df_2 = df_2[~df_2['email'].isin(['jay@amegumi.com', 'sub.ashuman@gmail.com'])]
+# df_2 = df_2[~df_2['email'].isin(['jay@amegumi.com', 'sub.ashuman@gmail.com'])]
 
-df = pd.concat([df_1, df_2], ignore_index=True)
+# df = pd.concat([df_1, df_2], ignore_index=True)
+df = df_1 # 2つのデータを連結しない場合
 df.drop(columns="email", inplace=True)
 
 # 数値以外のデータを NaN に変換する（もし存在する場合）
@@ -82,15 +87,6 @@ facet_x_df = df[facet_x_columns] # 0.777
 facet_a_df = df[facet_a_columns] # 0.69
 facet_c_df = df[facet_c_columns] # 0.729
 facet_o_df = df[facet_o_columns] # 0.679
-
-# correlation_matrix = domain_df.corr()
-# print(correlation_matrix)
-
-# クロンバックのα係数の計算
-# alpha, _ = pg.cronbach_alpha(data=facet_o_df)
-
-# クロンバックのα係数の出力
-# print(f"Cronbach's alpha: {alpha:.3f}")
 
 print(domain_df)
 print(facet_df)

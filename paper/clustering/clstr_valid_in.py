@@ -343,7 +343,8 @@ def perform_clustering(data, n_clusters):
     # return {'ward_kmeans': kmeans_labels}
 
 # 結果を格納するための辞書を作成
-results = {'validity criterion': ['C-index', 'Generalized Dunn Index 31', 'Baker-Hubert Gamma', 'G(+)', 'Silhouette', 'S_Dbw', 'AIC', 'BIC']}
+# results = {'validity criterion': ['C-index', 'Generalized Dunn Index 31', 'Baker-Hubert Gamma', 'G(+)', 'Silhouette', 'S_Dbw', 'AIC', 'BIC']}
+results = {'validity criterion': ['C-index', 'Generalized Dunn Index 31', 'Silhouette', 'S_Dbw', 'AIC', 'BIC']}
 
 # クラスタ数ごとの結果をまとめる関数
 def store_results(method, n_clusters, validity_results, aic, bic):
@@ -354,8 +355,8 @@ def store_results(method, n_clusters, validity_results, aic, bic):
     # 結果を順番に追加
     results[column_key].append(validity_results.get('C-index', None))
     results[column_key].append(validity_results.get('Generalized Dunn Index 31', None))
-    results[column_key].append(validity_results.get('Baker-Hubert Gamma', None))
-    results[column_key].append(validity_results.get('G(+)', None))
+    # results[column_key].append(validity_results.get('Baker-Hubert Gamma', None))
+    # results[column_key].append(validity_results.get('G(+)', None))
     results[column_key].append(validity_results.get('Silhouette', None))
     results[column_key].append(validity_results.get('S_Dbw', None))
     results[column_key].append(aic)
@@ -382,12 +383,12 @@ for n_clusters in cluster_numbers:
         validity_results['Generalized Dunn Index 31'] = calculate_generalized_dunn_index(data_scaled, labels, within_method='max', between_method='min')
         
         # Baker-Hubert Gammaの計算
-        print("start Baker-Hubert Gamma")
-        validity_results['Baker-Hubert Gamma'] = calculate_baker_hubert_gamma(data_scaled, labels, batch_size=50000)
+        # print("start Baker-Hubert Gamma")
+        # validity_results['Baker-Hubert Gamma'] = calculate_baker_hubert_gamma(data_scaled, labels, batch_size=50000)
         
         # G(+)の計算
-        print("start G+")
-        validity_results['G(+)'] = calculate_g_plus(data_scaled, labels)
+        # print("start G+")
+        # validity_results['G(+)'] = calculate_g_plus(data_scaled, labels)
                 
         # Silhouetteの計算
         print("start Silhouette")

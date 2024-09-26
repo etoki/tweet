@@ -6,6 +6,11 @@ select
     , (endTimestamp - startTimestamp)/60 as diff
     , completed
 from response 
-left join user
-on response.userId = user.id 
-order by startTimestamp;
+inner join user
+on response.userId = user.id and user.email is not null
+order by startTimestamp
+
+INTO OUTFILE '/var/lib/mysql-files/userls_20240922.csv'
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';

@@ -3,4 +3,6 @@
 -- 消されたか確認
 SELECT * FROM app_user_profiles 
 WHERE user_id IN 
-(3512461,3514554)
+(3519633)
+
+-- user_deleteで削除した後、アプリでもアカウントがあるか確認。存在すればcustom_idをnullにする。

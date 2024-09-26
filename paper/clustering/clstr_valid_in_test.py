@@ -311,7 +311,8 @@ def calculate_aic_bic(data, labels, n_clusters):
         return None, None
 
 # メイン処理
-file_path = 'csv/hexaco_domain_test.csv'
+# file_path = 'csv/hexaco_domain_test.csv'
+file_path = '../../csv/hexaco_domain_1000.csv'
 data = pd.read_csv(file_path)
 
 # データの標準化
@@ -416,6 +417,6 @@ df_results = pd.DataFrame(results)
 print(df_results)
 
 # CSVファイルに保存
-csv_file_path = 'csv/clustering_internal_validity_test.csv'
+csv_file_path = '../../csv/clustering_internal_validity_1000.csv'
 df_results.to_csv(csv_file_path, index=False)
 print(f"Results saved to {csv_file_path}")

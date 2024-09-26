@@ -3,7 +3,8 @@ import numpy as np
 
 # CSVファイルを読み込む
 # 例: "hexaco_facets.csv" はファセットデータのCSVファイル名に置き換えてください
-file_path = 'csv/hexaco_facet.csv'
+# file_path = '../../csv/hexaco_facet.csv'
+file_path = '../../csv/hexaco-jp_facet.csv'
 df_facets = pd.read_csv(file_path)
 
 # 各ファセットをドメインごとにまとめる

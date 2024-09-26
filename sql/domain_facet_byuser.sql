@@ -71,11 +71,14 @@ left join response r
 on cal.responseId = r.id
 where 
     r.completed = 1 
+    -- new hexaco-jp from HEXACO-IPIP
+    and FROM_UNIXTIME(r.startTimestamp, '%Y/%m/%d %H:%i:%s') >= "2024/09/16 00:00:00"
+    
 order by r.startTimestamp DESC
 
-limit 100
+-- limit 100
 
--- INTO OUTFILE '/var/lib/mysql-files/hexaco_raw_webapp_20240906.csv'
--- FIELDS TERMINATED BY ','
--- ENCLOSED BY '"'
--- LINES TERMINATED BY '\n';
+INTO OUTFILE '/var/lib/mysql-files/hexaco_raw_from_20240916.csv'
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
