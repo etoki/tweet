@@ -4,14 +4,19 @@ import numpy as np
 # CSVファイルを読み込む
 # 例: "hexaco_facets.csv" はファセットデータのCSVファイル名に置き換えてください
 # file_path = '../../csv/hexaco_facet.csv'
-file_path = '../../csv/hexaco-jp_facet.csv'
+# file_path = '../../csv/hexaco_dev/hexaco-jp_facet_v1.csv'
+# file_path = '../../csv/hexaco_dev/hexaco-jp_facet_v1-2.csv'
+# file_path = '../../csv/hexaco_dev/hexaco-jp_facet_v3.csv'
+# file_path = '../../csv/hexaco_dev/cul_24_pp_fc.csv'
+file_path = '../../csv/hexaco_dev/hexaco-jp_facet_v4.csv'
 df_facets = pd.read_csv(file_path)
 
 # 各ファセットをドメインごとにまとめる
 domain_facets = {
     "Honesty-Humility": ['Sincerity', 'Fairness', 'Greed-Avoidance', 'Modesty'],
     "Emotionality": ['Fearfulness', 'Anxiety', 'Dependence', 'Sentimentality'],
-    "Extraversion": ['Social-Self-Esteem', 'Social-Boldness', 'Sociability', 'Liveliness'],
+    # "Extraversion": ['Social-Self-Esteem', 'Social-Boldness', 'Sociability', 'Liveliness'],
+    "Extraversion": ['Expressiveness', 'Social-Boldness', 'Sociability', 'Liveliness'],
     "Agreeableness": ['Forgiveness', 'Gentleness', 'Flexibility', 'Patience'],
     "Conscientiousness": ['Organization', 'Diligence', 'Perfectionism', 'Prudence'],
     "Openness to Experience": ['Aesthetic-Appreciation', 'Inquisitiveness', 'Creativity', 'Unconventionality']

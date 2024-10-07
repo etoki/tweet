@@ -73,7 +73,7 @@ scaler = StandardScaler()
 data_scaled = scaler.fit_transform(data)
 
 # クラスタ数
-cluster_numbers = [3, 5, 7]
+cluster_numbers = [3,5,7]
 
 # 各クラスタリングアルゴリズム
 def perform_clustering(data, n_clusters):
@@ -97,8 +97,7 @@ def perform_clustering(data, n_clusters):
     print(f"Performing Spectral Clustering with {n_clusters} clusters...")
     spectral = SpectralClustering(n_clusters=n_clusters, affinity='nearest_neighbors', random_state=42)
     spectral_labels = spectral.fit_predict(data)
-    
-    return {'ward_kmeans': kmeans_labels, 'gmm': gmm_labels, 'spectral': spectral_labels}
+    return {'ward_kmeans': kmeans_labels,'gmm': gmm_labels,'spectral': spectral_labels}
 
 
 # 結果を格納するための辞書を作成

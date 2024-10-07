@@ -4,12 +4,22 @@ import pingouin as pg
 
 # CSVファイルのパス
 # input_csv_path1  = '../../csv/hexaco_raw_webapp.csv'
-input_csv_path1  = '../../csv/hexaco_raw_from_20240916.csv' # HEXACO-JP
+# input_csv_path1  = '../../csv/hexaco_dev/hexaco-jp_ver1.csv' # HEXACO-JP-v1
+# input_csv_path1  = '../../csv/hexaco_dev/hexaco-jp_ver1-2.csv' # HEXACO-JP-v1-2
+# input_csv_path1  = '../../csv/hexaco_dev/hexaco-jp_ver2.csv' # HEXACO-JP-v2
+# input_csv_path1  = '../../csv/hexaco_dev/hexaco-jp_ver3.csv' # HEXACO-JP-v3
+input_csv_path1  = '../../csv/hexaco_dev/hexaco-jp_ver4.csv' # HEXACO-JP-v3
+
 input_csv_path2  = '../../csv/hexaco_raw_googleform.csv'
-# output_csv_path1 = '../../csv/hexaco_domain.csv'
-# output_csv_path2 = '../../csv/hexaco_facet.csv'
-output_csv_path1 = '../../csv/hexaco-jp_domain.csv'
-output_csv_path2 = '../../csv/hexaco-jp_facet.csv'
+
+# output_csv_path1 = '../../csv/hexaco_dev/hexaco_domain.csv'
+# output_csv_path2 = '../../csv/hexaco_dev/hexaco_facet.csv'
+output_csv_path1 = '../../csv/hexaco_dev/hexaco-jp_domain.csv'
+# output_csv_path2 = '../../csv/hexaco_dev/hexaco-jp_facet.csv'
+# output_csv_path2 = '../../csv/hexaco_dev/hexaco-jp_facet_v1.csv'
+# output_csv_path2 = '../../csv/hexaco_dev/hexaco-jp_facet_v1-2.csv'
+# output_csv_path2 = '../../csv/hexaco_dev/hexaco-jp_facet_v3.csv'
+output_csv_path2 = '../../csv/hexaco_dev/hexaco-jp_facet_v4.csv'
 
 
 # 追加するカラム名
@@ -18,7 +28,8 @@ column_names = [
     'Honesty-Humility', 'Emotionality', 'Extraversion', 'Agreeableness', 'Conscientiousness', 'Openness', 
     'Sincerity', 'Fairness', 'Greed-Avoidance', 'Modesty', 
     'Fearfulness', 'Anxiety', 'Dependence', 'Sentimentality', 
-    'Social-Self-Esteem', 'Social-Boldness', 'Sociability', 'Liveliness', 
+    # 'Social-Self-Esteem', 'Social-Boldness', 'Sociability', 'Liveliness', 
+    'Expressiveness', 'Social-Boldness', 'Sociability', 'Liveliness', 
     'Forgiveness', 'Gentleness', 'Flexibility', 'Patience', 
     'Organization', 'Diligence', 'Perfectionism', 'Prudence', 
     'Aesthetic-Appreciation', 'Inquisitiveness', 'Creativity', 'Unconventionality', 
@@ -63,7 +74,8 @@ domain_columns = [
 facet_columns = [
     'Sincerity', 'Fairness', 'Greed-Avoidance', 'Modesty',
     'Fearfulness', 'Anxiety', 'Dependence', 'Sentimentality',
-    'Social-Self-Esteem', 'Social-Boldness', 'Sociability', 'Liveliness',
+    # 'Social-Self-Esteem', 'Social-Boldness', 'Sociability', 'Liveliness',
+    'Expressiveness', 'Social-Boldness', 'Sociability', 'Liveliness',
     'Forgiveness', 'Gentleness', 'Flexibility', 'Patience',
     'Organization', 'Diligence', 'Perfectionism', 'Prudence',
     'Aesthetic-Appreciation', 'Inquisitiveness', 'Creativity', 'Unconventionality'
@@ -71,7 +83,8 @@ facet_columns = [
 
 facet_h_columns = ['Sincerity', 'Fairness', 'Greed-Avoidance', 'Modesty']
 facet_e_columns = ['Fearfulness', 'Anxiety', 'Dependence', 'Sentimentality']
-facet_x_columns = ['Social-Self-Esteem', 'Social-Boldness', 'Sociability', 'Liveliness']
+# facet_x_columns = ['Social-Self-Esteem', 'Social-Boldness', 'Sociability', 'Liveliness']
+facet_x_columns = ['Expressiveness', 'Social-Boldness', 'Sociability', 'Liveliness']
 facet_a_columns = ['Forgiveness', 'Gentleness', 'Flexibility', 'Patience']
 facet_c_columns = ['Organization', 'Diligence', 'Perfectionism', 'Prudence']
 facet_o_columns = ['Aesthetic-Appreciation', 'Inquisitiveness', 'Creativity', 'Unconventionality']

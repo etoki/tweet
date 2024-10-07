@@ -1,0 +1,43 @@
+-- UPDATE psych.hexaco_question SET title = "哲学など抽象的なことには興味がない。" WHERE title = "礼儀正しく、伝統的だと見られるのが好きだ。";
+
+-- UPDATE psych.hexaco_question SET title = "感心されるために、何らかの役を演じる。", inversion = 1 WHERE id = "74fac51f-74e6-11ef-94cb-9ca3ba0723db";
+-- UPDATE psych.hexaco_question SET title = "仕事で上手くいくなら不正をする。", inversion = 1 WHERE id = "750a7be7-74e6-11ef-94cb-9ca3ba0723db";
+-- UPDATE psych.hexaco_question SET title = "贅沢な買い物や高級な食事をするのが好きだ。", inversion = 1 WHERE id = "7519dff8-74e6-11ef-94cb-9ca3ba0723db";
+-- UPDATE psych.hexaco_question SET title = "自分は特別ではなくただの普通の人間だと思う。", inversion = 0 WHERE id = "7529416c-74e6-11ef-94cb-9ca3ba0723db";
+-- UPDATE psych.hexaco_question SET title = "相手が自分を大切に思えるように、私は相手に言いなりになる。", inversion = 1 WHERE id = "7538d285-74e6-11ef-94cb-9ca3ba0723db";
+-- UPDATE psych.hexaco_question SET title = "非常に巧妙で手の込んだ詐欺に感動してしまう。", inversion = 1 WHERE id = "7556c327-74e6-11ef-94cb-9ca3ba0723db";
+-- UPDATE psych.hexaco_question SET title = "権力を強く求めている。", inversion = 1 WHERE id = "756665f2-74e6-11ef-94cb-9ca3ba0723db";
+-- UPDATE psych.hexaco_question SET title = "自分は普通の人よりも注目される存在だと思う。", inversion = 1 WHERE id = "7575cbcd-74e6-11ef-94cb-9ca3ba0723db";
+-- UPDATE psych.hexaco_question SET title = "仕事で上手くいくならお世辞を言う。", inversion = 1 WHERE id = "759399fe-74e6-11ef-94cb-9ca3ba0723db";
+-- UPDATE psych.hexaco_question SET title = "誰かから物を盗んだら、長い間罪悪感を感じるだろう。", inversion = 0 WHERE id = "76371213-74e6-11ef-94cb-9ca3ba0723db";
+
+-- UPDATE psych.hexaco_question SET title = "仕事で上手くいくならお世辞を言う。" WHERE id = "ca8f8c51-8238-11ef-94cb-9ca3ba0723db";
+-- UPDATE psych.hexaco_question SET title = "贅沢な買い物や高級な食事をするのが好きだ。" WHERE id = "cab4493e-8238-11ef-94cb-9ca3ba0723db";
+
+UPDATE psych.hexaco_question SET title = "危険が迫るとパニックになるだろう。", inversion = 0 WHERE id = "753893b8-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "危険な状況に直面すると震えが止まらない。", inversion = 0 WHERE id = "75851f1e-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "結局は大したことのないことでよく心配する。", inversion = 0 WHERE id = "75566d9d-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "他人に影響されやすい。", inversion = 0 WHERE id = "7519a3c1-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "誰かに守られたいと感じる。", inversion = 0 WHERE id = "75661c0b-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "他の人の感情を自分のことのように感じる。", inversion = 0 WHERE id = "757595d1-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "他人の必要としていることに対して敏感に反応する。", inversion = 0 WHERE id = "75a2e92a-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "普段あまり人と話さない。", inversion = 1 WHERE id = "74ed5185-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "飲み会では盛り上げ役になる。", inversion = 0 WHERE id = "75386354-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "勢いよく、賑やかに笑う。", inversion = 0 WHERE id = "7584de5b-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "即興で人前で話すのが得意だ。", inversion = 0 WHERE id = "74fbf9d9-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "たいてい元気いっぱいで活発に動いている。", inversion = 0 WHERE id = "7528dd80-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "よく声を出して笑う。", inversion = 0 WHERE id = "75755826-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "毒舌になることがある。", inversion = 1 WHERE id = "74fbb2be-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "めったに文句や不満を言わない。", inversion = 0 WHERE id = "7584abf8-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "自分の要求が多く、満足しにくい。", inversion = 1 WHERE id = "750b3259-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "他人のミスにイライラする。", inversion = 1 WHERE id = "755756ae-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "自分が整理したものを他人が変えるとイライラする。", inversion = 1 WHERE id = "75945eba-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "物を元の場所に戻すのをよく忘れる。", inversion = 1 WHERE id = "755724a6-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "仕事に厳密さを求める。", inversion = 0 WHERE id = "7566cf8d-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "仕事で最高の品質を追求したい。", inversion = 0 WHERE id = "7537e698-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "細部にこだわる。", inversion = 0 WHERE id = "758463a0-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "よく考えずに決めてしまうことがある。", inversion = 1 WHERE id = "751a4e90-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "計画に従って物事を進める。", inversion = 0 WHERE id = "75942609-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "芸術の重要性を信じている。", inversion = 0 WHERE id = "74eca480-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "直感的なひらめきが急に訪れることはほとんどない。", inversion = 1 WHERE id = "750ac407-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "人から変わり者だと思われている。", inversion = 0 WHERE id = "751a11db-74e6-11ef-94cb-9ca3ba0723db";

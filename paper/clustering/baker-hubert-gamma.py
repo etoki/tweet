@@ -101,7 +101,6 @@ def perform_clustering(data, n_clusters):
     spectral_labels = spectral.fit_predict(data)
     
     return {'ward_kmeans': kmeans_labels, 'gmm': gmm_labels, 'spectral': spectral_labels}
-    # return {'ward_kmeans': kmeans_labels}
 
 # 結果を格納するための辞書を作成
 results = {'validity criterion': ['Baker-Hubert Gamma']}
