@@ -4,15 +4,15 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 # データの読み込み
-# file_path_in = '../../csv/factor_analysis/HEXACO-JP_ver3_factor-analysis.csv'
-# file_path_in = '../../csv/factor_analysis/fa_240.csv'
-# file_path_in = '../../csv/factor_analysis/fa_96.csv'
-file_path_in = '../../csv/factor_analysis/HEXACO-JP_ver4_factor-analysis.csv'
+# file_path_in = '../../csv/1101_hexaco_dev/HEXACO-JP_ver3_factor-analysis.csv'
+# file_path_in = '../../csv/1101_hexaco_dev/fa_240.csv'
+file_path_in = 'csv/1101_hexaco_dev/fa_96.csv'
+# file_path_in = '../../csv/1101_hexaco_dev/HEXACO-JP_ver4_factor-analysis.csv'
 data = pd.read_csv(file_path_in)
 
 # ID列を削除
-data_clean = data.drop(columns=["userid"])
-# data_clean = data.drop(columns=["メールアドレス"])
+# data_clean = data.drop(columns=["userid"])
+data_clean = data.drop(columns=["メールアドレス"])
 
 # 欠損値の補完（今回は平均値で補完）
 data_clean = data_clean.fillna(data_clean.mean())
@@ -52,11 +52,11 @@ eigenvalues_df = pd.DataFrame(eigenvalues, columns=["Eigenvalues"])
 omega_df = pd.DataFrame(omega, index=[f"Factor{i+1}" for i in range(len(omega))], columns=["Omega"])
 
 # CSVファイルとして出力
-factor_loadings_df.to_csv('../../csv/factor_analysis/v4_factor_loadings.csv', index=True)
+# factor_loadings_df.to_csv('../../csv/1101_hexaco_dev/v4_factor_loadings.csv', index=True)
 
-# factor_loadings_df.to_csv('../../csv/factor_analysis/96_factor_loadings_dm.csv', index=True)
-# communalities_df.to_csv('../../csv/factor_analysis/240_communalities.csv', index=True)
-# eigenvalues_df.to_csv('../../csv/factor_analysis/240_eigenvalues.csv', index=False)
-# omega_df.to_csv('../../csv/factor_analysis/240_omega.csv', index=True)
+factor_loadings_df.to_csv('csv/1101_hexaco_dev/96_factor_loadings_dm.csv', index=True)
+# communalities_df.to_csv('../../csv/1101_hexaco_dev/240_communalities.csv', index=True)
+# eigenvalues_df.to_csv('../../csv/1101_hexaco_dev/240_eigenvalues.csv', index=False)
+# omega_df.to_csv('../../csv/1101_hexaco_dev/240_omega.csv', index=True)
 
 print("ファイルはCSVとして保存されました。")
