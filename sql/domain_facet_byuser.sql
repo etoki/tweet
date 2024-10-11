@@ -73,7 +73,7 @@ where
     r.completed = 1 
     -- new hexaco-jp from HEXACO-IPIP
     and surveyType = 'hexaco-jp'
-    and FROM_UNIXTIME(r.startTimestamp, '%Y/%m/%d %H:%i:%s') >= "2024/10/05 00:00:00"
+    and FROM_UNIXTIME(r.startTimestamp, '%Y/%m/%d %H:%i:%s') >= "2024/10/08 00:00:00"
     -- and FROM_UNIXTIME(r.startTimestamp, '%Y/%m/%d %H:%i:%s') <= "2024/09/28 23:50:00"
     
 order by r.startTimestamp DESC

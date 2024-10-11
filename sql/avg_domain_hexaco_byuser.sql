@@ -10,6 +10,7 @@ select
     , FROM_UNIXTIME(r.endTimestamp, '%Y/%m/%d %H:%i:%s') AS endTimestamp
     , (r.endTimestamp - r.startTimestamp)/60 as diff
     , r.completed
+    , r.surveyType
     ,ROW_NUMBER() OVER (ORDER BY r.startTimestamp) as num
 from
 (

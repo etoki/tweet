@@ -54,9 +54,9 @@ omega_df = pd.DataFrame(omega, index=[f"Factor{i+1}" for i in range(len(omega))]
 # CSVファイルとして出力
 # factor_loadings_df.to_csv('../../csv/1101_hexaco_dev/v4_factor_loadings.csv', index=True)
 
-factor_loadings_df.to_csv('csv/1101_hexaco_dev/96_factor_loadings_dm.csv', index=True)
-# communalities_df.to_csv('../../csv/1101_hexaco_dev/240_communalities.csv', index=True)
-# eigenvalues_df.to_csv('../../csv/1101_hexaco_dev/240_eigenvalues.csv', index=False)
-# omega_df.to_csv('../../csv/1101_hexaco_dev/240_omega.csv', index=True)
+# factor_loadings_df.to_csv('csv/1101_hexaco_dev/96_factor_loadings_dm.csv', index=True)
+communalities_df.to_csv('csv/1101_hexaco_dev/96_communalities.csv', index=True)
+eigenvalues_df.to_csv('csv/1101_hexaco_dev/96_eigenvalues.csv', index=False)
+omega_df.to_csv('csv/1101_hexaco_dev/96_omega.csv', index=True)
 
 print("ファイルはCSVとして保存されました。")

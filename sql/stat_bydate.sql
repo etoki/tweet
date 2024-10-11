@@ -3,6 +3,7 @@ select
     -- ,sum(case when surveyType = 'hexaco'      then 1 end) as 'hexaco'
     ,sum(case when surveyType = 'hexaco-jp'   then 1 end) as 'hexaco-jp60'
     ,sum(case when surveyType = 'hexaco-jp24' then 1 end) as 'hexaco-jp24'
+    ,sum(case when surveyType = 'hexaco-jp100' then 1 end) as 'hexaco-jp100'
 
     , count(*) as ans
     , count(distinct userId) as u_ans
@@ -11,6 +12,7 @@ select
     ,sum(case when completed = 1 then 1 end) as 'comp_all'
     ,sum(case when completed = 1 and surveyType = 'hexaco-jp'   then 1 end) as 'comp_60'
     ,sum(case when completed = 1 and surveyType = 'hexaco-jp24' then 1 end) as 'comp_24'
+    ,sum(case when completed = 1 and surveyType = 'hexaco-jp100' then 1 end) as 'comp_100'
     , sum(completed)/count(*) as comp_rate
 
     , count(DISTINCT email) as uu

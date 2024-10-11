@@ -13,7 +13,8 @@
 
 -- UPDATE psych.hexaco_question SET title = "", inversion = 0 WHERE id = "";
 
-UPDATE psych.hexaco_question SET title = "人を感心させるためにわざと演技をする。" WHERE id = "759399fe-74e6-11ef-94cb-9ca3ba0723db";
-UPDATE psych.hexaco_question SET title = "自分のものではないものを決して取らない。", inversion = 0 WHERE id = "7556c327-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "感心されるために、何らかの役を演じる。" WHERE id = "759399fe-74e6-11ef-94cb-9ca3ba0723db";
+UPDATE psych.hexaco_question SET title = "感心されるために、何らかの役を演じる。" WHERE id = "ca8f8c51-8238-11ef-94cb-9ca3ba0723db";
+-- UPDATE psych.hexaco_question SET title = "自分のものではないものを決して取らない。", inversion = 0 WHERE id = "7556c327-74e6-11ef-94cb-9ca3ba0723db";
 
 
