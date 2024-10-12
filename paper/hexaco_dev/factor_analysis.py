@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 # データの読み込み
 # file_path_in = '../../csv/1101_hexaco_dev/HEXACO-JP_ver3_factor-analysis.csv'
 # file_path_in = '../../csv/1101_hexaco_dev/fa_240.csv'
-file_path_in = 'csv/1101_hexaco_dev/fa_96.csv'
+file_path_in = 'csv/fa_96.csv'
 # file_path_in = '../../csv/1101_hexaco_dev/HEXACO-JP_ver4_factor-analysis.csv'
 data = pd.read_csv(file_path_in)
 
