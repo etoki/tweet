@@ -72,7 +72,8 @@ on cal.responseId = r.id
 where 
     r.completed = 1 
     -- new hexaco-jp from HEXACO-IPIP
-    and surveyType = 'hexaco-jp'
+    -- and surveyType = 'hexaco-jp'
+    and surveyType = 'hexaco-jp24'
     and FROM_UNIXTIME(r.startTimestamp, '%Y/%m/%d %H:%i:%s') >= "2024/10/08 00:00:00"
     -- and FROM_UNIXTIME(r.startTimestamp, '%Y/%m/%d %H:%i:%s') <= "2024/09/28 23:50:00"
     
@@ -80,7 +81,8 @@ order by r.startTimestamp DESC
 
 -- limit 10
 
-INTO OUTFILE '/var/lib/mysql-files/hexaco-jp_ver4.csv'
+-- INTO OUTFILE '/var/lib/mysql-files/hexaco-jp_ver5.csv'
+INTO OUTFILE '/var/lib/mysql-files/hexaco-jp24_ver1.csv'
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n';

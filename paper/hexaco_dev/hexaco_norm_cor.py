@@ -2,11 +2,18 @@ import pandas as pd
 import scipy.stats as stats
 import matplotlib.pyplot as plt
 import seaborn as sns
-import numpy as np 
+import numpy as np
 
 # CSVファイルの読み込み
-file_path = 'csv/hexaco_domain.csv'
+file_path = 'csv/cul_24pp.csv'
 df = pd.read_csv(file_path)
+
+# メールアドレスの列を削除
+df.drop(columns=['メールアドレス'], inplace=True)
+
+# ドメインの列名をリストとして指定
+domain_columns = ['Honesty-Humility', 'Emotionality', 'Extraversion', 
+                  'Agreeableness', 'Conscientiousness', 'Openness']
 
 # 相関をピアソンにするかスピアマンにするかの判定を格納する変数
 use_spearman = False
@@ -17,7 +24,7 @@ histogram_data = {}
 # 正規性の確認とヒストグラム作成
 plt.figure(figsize=(12, 8))  # 全体の図のサイズを設定
 
-for i, column in enumerate(df.columns, 1):
+for i, column in enumerate(domain_columns, 1):
     # 各変数の正規性をShapiro-Wilk検定で確認
     stat, p = stats.shapiro(df[column])
     print(f'{column} のShapiro-Wilk検定結果: 統計量={stat}, p値={p}')
@@ -50,22 +57,35 @@ histogram_df.columns = ['変数', 'ビンの範囲', '頻度']
 
 # ヒストグラムの結果を表示
 print(histogram_df)
-histogram_df.to_csv('csv/hexaco_histogram_df.csv') 
 
-
-# 相関行列の作成: スピアマンかピアソンかを自動選択
+# ドメインの相関行列の作成
 if use_spearman:
     print("スピアマンの相関係数を使用します。")
-    correlation_matrix = df.corr(method='spearman')
+    correlation_matrix = df[domain_columns].corr(method='spearman')
+    p_value_matrix = pd.DataFrame(np.zeros((len(domain_columns), len(domain_columns))), 
+                                  index=domain_columns, columns=domain_columns)
+    
+    for i in range(len(domain_columns)):
+        for j in range(len(domain_columns)):
+            _, p_value_matrix.iloc[i, j] = stats.spearmanr(df[domain_columns[i]], df[domain_columns[j]])
 else:
     print("ピアソンの相関係数を使用します。")
-    correlation_matrix = df.corr(method='pearson')
+    correlation_matrix = df[domain_columns].corr(method='pearson')
+    p_value_matrix = pd.DataFrame(np.zeros((len(domain_columns), len(domain_columns))), 
+                                  index=domain_columns, columns=domain_columns)
+
+    for i in range(len(domain_columns)):
+        for j in range(len(domain_columns)):
+            _, p_value_matrix.iloc[i, j] = stats.pearsonr(df[domain_columns[i]], df[domain_columns[j]])
 
 # 相関行列の表示
 print(correlation_matrix)
 
 # 相関行列をCSVに出力
-correlation_matrix.to_csv('csv/correlation_matrix.csv') 
+correlation_matrix.to_csv('csv/correlation_matrix.csv', encoding='utf-8-sig') 
+
+# P値行列をCSVに出力
+p_value_matrix.to_csv('csv/p_value_matrix.csv', encoding='utf-8-sig')
 
 # ヒートマップで相関行列を可視化
 plt.figure(figsize=(10, 8))

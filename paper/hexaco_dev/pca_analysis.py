@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 
 # ステップ1: CSVファイルからデータを読み込む
 # 'data.csv' を適切なファイルパスに変更してください
-file_path_in = 'csv/fa_240.csv'
-file_path_out = 'csv/240_pca_res.csv'
+file_path_in = 'csv/fa_240_ch.csv'
+file_path_out = 'csv/pca_res_240_ch.csv'
 data = pd.read_csv(file_path_in)
 data = data.drop(columns=["メールアドレス"])
 
@@ -32,11 +32,11 @@ pca_results = pd.DataFrame({
 print(pca_results)
 pca_results.to_csv(file_path_out, index=True)
 
-# ステップ4: スクリープロットの作成
-plt.figure(figsize=(8, 6))
-plt.plot(range(1, len(explained_variance) + 1), explained_variance, marker='o', linestyle='--')
-plt.title('Scree Plot')
-plt.xlabel('Number of Components')
-plt.ylabel('Explained Variance')
-plt.grid(True)
-plt.show()
+# # ステップ4: スクリープロットの作成
+# plt.figure(figsize=(8, 6))
+# plt.plot(range(1, len(explained_variance) + 1), explained_variance, marker='o', linestyle='--')
+# plt.title('Scree Plot')
+# plt.xlabel('Number of Components')
+# plt.ylabel('Explained Variance')
+# plt.grid(True)
+# plt.show()

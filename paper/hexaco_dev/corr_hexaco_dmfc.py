@@ -2,12 +2,9 @@ import pandas as pd
 import scipy.stats as stats
 
 # CSVファイルからデータを読み込む
-# input_csv_path1  = 'csv/1101_hexaco_dev/cul_240.csv'
-input_csv_path1  = 'csv/1101_hexaco_dev/cul_24pp.csv'
-# input_csv_path1  = 'csv/1101_hexaco_dev/cul_60.csv'
-# input_csv_path1  = 'csv/1101_hexaco_dev/cul_100.csv'
-input_csv_path2  = 'csv/1101_hexaco_dev/cul_60_wakabayashi.csv'
-output_csv_path  = 'csv/1101_hexaco_dev/hexaco_corr_24pp.csv'
+input_csv_path1  = 'csv/cul_24pp.csv'
+input_csv_path2  = 'csv/cul_60_wakabayashi.csv'
+output_csv_path  = 'csv/correl_24pp_60w.csv'
 
 df1 = pd.read_csv(input_csv_path1)
 df2 = pd.read_csv(input_csv_path2)

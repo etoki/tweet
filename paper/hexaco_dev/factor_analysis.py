@@ -4,10 +4,8 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 # データの読み込み
-# file_path_in = '../../csv/1101_hexaco_dev/HEXACO-JP_ver3_factor-analysis.csv'
-# file_path_in = '../../csv/1101_hexaco_dev/fa_240.csv'
-file_path_in = 'csv/fa_96.csv'
-# file_path_in = '../../csv/1101_hexaco_dev/HEXACO-JP_ver4_factor-analysis.csv'
+file_path_in = 'csv/fa_240_ch.csv'
+# file_path_in = 'csv/HEXACO-JP_ver4_factor-analysis.csv'
 data = pd.read_csv(file_path_in)
 
 # ID列を削除
@@ -21,9 +19,8 @@ data_clean = data_clean.fillna(data_clean.mean())
 scaler = StandardScaler()
 data_scaled = scaler.fit_transform(data_clean)
 
-# 因子分析を実施
-fa = FactorAnalyzer(n_factors=6, rotation="varimax") # domain
-# fa = FactorAnalyzer(n_factors=24, rotation="varimax") # facet
+# 因子分析を実施、主成分分析とスクリープロットから因子数決定
+fa = FactorAnalyzer(n_factors=6, rotation="varimax") 
 fa.fit(data_scaled)
 
 # 因子負荷量の取得
@@ -43,20 +40,23 @@ def calculate_omega(loadings, communalities):
     omega = factor_variances / total_variance
     return omega
 
-omega = calculate_omega(factor_loadings, communalities)
+# omega = calculate_omega(factor_loadings, communalities)
 
 # DataFrameへの変換
 factor_loadings_df = pd.DataFrame(factor_loadings, index=data_clean.columns, columns=[f"Factor{i+1}" for i in range(factor_loadings.shape[1])])
-communalities_df = pd.DataFrame(communalities, index=data_clean.columns, columns=["Communalities"])
-eigenvalues_df = pd.DataFrame(eigenvalues, columns=["Eigenvalues"])
-omega_df = pd.DataFrame(omega, index=[f"Factor{i+1}" for i in range(len(omega))], columns=["Omega"])
+# communalities_df = pd.DataFrame(communalities, index=data_clean.columns, columns=["Communalities"])
+# eigenvalues_df = pd.DataFrame(eigenvalues, columns=["Eigenvalues"])
+# omega_df = pd.DataFrame(omega, index=[f"Factor{i+1}" for i in range(len(omega))], columns=["Omega"])
 
 # CSVファイルとして出力
-# factor_loadings_df.to_csv('../../csv/1101_hexaco_dev/v4_factor_loadings.csv', index=True)
+# factor_loadings_df.to_csv('../../csv/v4_factor_loadings.csv', index=True)
 
-# factor_loadings_df.to_csv('csv/1101_hexaco_dev/96_factor_loadings_dm.csv', index=True)
-communalities_df.to_csv('csv/1101_hexaco_dev/96_communalities.csv', index=True)
-eigenvalues_df.to_csv('csv/1101_hexaco_dev/96_eigenvalues.csv', index=False)
-omega_df.to_csv('csv/1101_hexaco_dev/96_omega.csv', index=True)
+# factor_loadings_df.to_csv('csv/factor_loadings_96.csv', index=True)
+factor_loadings_df.to_csv('csv/factor_loadings_240_ch.csv', index=True)
+
+# factor_loadings_df.to_csv('csv/144_factor_loadings.csv', index=True)
+# communalities_df.to_csv('csv/144_communalities.csv', index=True)
+# eigenvalues_df.to_csv('csv/144_eigenvalues.csv', index=False)
+# omega_df.to_csv('csv/144_omega.csv', index=True)
 
 print("ファイルはCSVとして保存されました。")
