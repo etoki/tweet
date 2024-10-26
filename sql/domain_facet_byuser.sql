@@ -81,8 +81,8 @@ order by r.startTimestamp DESC
 
 -- limit 10
 
--- INTO OUTFILE '/var/lib/mysql-files/hexaco-jp_ver5.csv'
-INTO OUTFILE '/var/lib/mysql-files/hexaco-jp24_ver1.csv'
+-- INTO OUTFILE '/var/lib/mysql-files/hexaco-jp_for_cleansing_v5.csv'
+INTO OUTFILE '/var/lib/mysql-files/hexaco-jp24_for_cleansing_v2.csv'
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n';
