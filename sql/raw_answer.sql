@@ -15,13 +15,13 @@ ON a.questionId = q.id
 inner join response r
 on 
     a.responseId = r.id 
-    -- and r.surveyType = 'hexaco-jp'
-    and r.surveyType = 'hexaco-jp24'
-    and FROM_UNIXTIME(r.startTimestamp, '%Y/%m/%d %H:%i:%s') >= "2024/10/08 00:00:00"
+    and r.surveyType = 'hexaco-jp'
+    -- and r.surveyType = 'hexaco-jp24'
+    and FROM_UNIXTIME(r.startTimestamp, '%Y/%m/%d %H:%i:%s') >= "2024/10/28 00:00:00"
     and r.completed = 1 
 
--- INTO OUTFILE '/var/lib/mysql-files/hexaco-jp_raw_answer_v5.csv' 
-INTO OUTFILE '/var/lib/mysql-files/hexaco-jp24_raw_answer_v2.csv' 
+INTO OUTFILE '/var/lib/mysql-files/hexaco-jp_raw_answer_v6.csv' 
+-- INTO OUTFILE '/var/lib/mysql-files/hexaco-jp24_raw_answer_v2.csv' 
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n';

@@ -8,9 +8,9 @@ from
 (
     select
         cal.*
-        , case when HonestyHumility <= 2.5 and Agreeableness <= 3.0 and Extraversion >= 3.0 and Openness >= 3.0 then 1 else null end as "narcissism"
-        , case when HonestyHumility <= 2.5 and Agreeableness <= 3.0 and Emotionality >= 3.5 and Conscientiousness <= 2.5 then 1 else null end as "psychopathy"
-        , case when HonestyHumility <= 2.5 and Agreeableness <= 3.0 and Emotionality >= 3.0 and Extraversion <= 3.0 and Openness >= 3.0 then 1 else null end as "machiavellianism"
+        , case when HonestyHumility <= 2.5 and Agreeableness <= 3.0 and Extraversion >= 4.0 and Openness >= 3.0 then 1 else null end as "narcissism"
+        , case when HonestyHumility <= 2.5 and Agreeableness <= 2.5 and Emotionality <= 2.5 and Extraversion <= 3.0 and Conscientiousness <= 3.0 then 1 else null end as "psychopathy"
+        , case when HonestyHumility <= 2.5 and Agreeableness <= 2.5 and Emotionality <= 3.0 and Extraversion <= 3.0 and Openness >= 3.0 then 1 else null end as "machiavellianism"
         , FROM_UNIXTIME(r.startTimestamp, '%Y/%m/%d %H:%i:%s') AS startTimestamp
         , FROM_UNIXTIME(r.endTimestamp, '%Y/%m/%d %H:%i:%s') AS endTimestamp
         , (r.endTimestamp - r.startTimestamp)/60 as diff

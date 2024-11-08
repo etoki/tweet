@@ -4,13 +4,14 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 # データの読み込み
-file_path_in = 'csv/fa_240_ch.csv'
-# file_path_in = 'csv/HEXACO-JP_ver4_factor-analysis.csv'
+# file_path_in = 'csv/fa_240_ch.csv'
+file_path_in = 'csv/hexaco-jp_facet_for_fa_v6.csv'
+# file_path_in = 'csv/hexaco-jp24_facet_for_fa_v2.csv'
 data = pd.read_csv(file_path_in)
 
 # ID列を削除
-# data_clean = data.drop(columns=["userid"])
-data_clean = data.drop(columns=["メールアドレス"])
+data_clean = data.drop(columns=["userid"])
+# data_clean = data.drop(columns=["メールアドレス"])
 
 # 欠損値の補完（今回は平均値で補完）
 data_clean = data_clean.fillna(data_clean.mean())
@@ -49,14 +50,13 @@ factor_loadings_df = pd.DataFrame(factor_loadings, index=data_clean.columns, col
 # omega_df = pd.DataFrame(omega, index=[f"Factor{i+1}" for i in range(len(omega))], columns=["Omega"])
 
 # CSVファイルとして出力
-# factor_loadings_df.to_csv('../../csv/v4_factor_loadings.csv', index=True)
+factor_loadings_df.to_csv('csv/hexaco-jp_fa_v6.csv', index=True)
+# factor_loadings_df.to_csv('csv/hexaco-jp24_fa_v2.csv', index=True)
 
-# factor_loadings_df.to_csv('csv/factor_loadings_96.csv', index=True)
-factor_loadings_df.to_csv('csv/factor_loadings_240_ch.csv', index=True)
+# factor_loadings_df.to_csv('csv/factor_loadings_240_ch.csv', index=True)
 
-# factor_loadings_df.to_csv('csv/144_factor_loadings.csv', index=True)
-# communalities_df.to_csv('csv/144_communalities.csv', index=True)
-# eigenvalues_df.to_csv('csv/144_eigenvalues.csv', index=False)
-# omega_df.to_csv('csv/144_omega.csv', index=True)
+# communalities_df.to_csv('csv/communalities.csv', index=True)
+# eigenvalues_df.to_csv('csv/eigenvalues.csv', index=False)
+# omega_df.to_csv('csv/omega.csv', index=True)
 
 print("ファイルはCSVとして保存されました。")
