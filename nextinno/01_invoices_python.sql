@@ -101,6 +101,7 @@ WITH base_query AS (
             WHEN med.category_id = 9 THEN '便秘'
             WHEN RIGHT(mv.prescription_name, 2) = '特典' THEN '特典'
             WHEN mv.prescription_name = 'リベルサス3mg30錠 1T 分1 30日分' THEN 'ダイエット単発'
+            
             WHEN mv.prescription_name IN (
                 'リベルサス3mg30錠 1T 分1 360日分 (3シートずつ12回分割)',
                 'リベルサス3mg30錠 1T 分1 360日分 (9シートずつ4回分割)',
