@@ -460,5 +460,18 @@ data_with_min_priority_2 AS (
 )
 
 SELECT
-    *
+    *,
+    -- 値引特典_税込と値引特典_税抜の計算
+    CASE WHEN "特典" = 1 AND "コース分類4" = MIN("コース分類4") OVER (PARTITION BY "請求ID") THEN 1500 ELSE 0 END AS "値引特典_税込",
+    CASE WHEN "特典" = 1 AND "コース分類4" = MIN("コース分類4") OVER (PARTITION BY "請求ID") THEN 1363 ELSE 0 END AS "値引特典_税抜",
+    -- GMV診察代_税込とGMV診察代_税抜の調整
+    CASE WHEN "特典" = 1 AND "コース分類4" = MIN("コース分類4") OVER (PARTITION BY "請求ID") THEN 1500 ELSE COALESCE("GMV診察代_税込_raw", 0) END AS "GMV診察代_税込",
+    CASE WHEN "特典" = 1 AND "コース分類4" = MIN("コース分類4") OVER (PARTITION BY "請求ID") THEN 1363 ELSE FLOOR(COALESCE("GMV診察代_税込_raw", 0) / 1.1)::int END AS "GMV診察代_税抜",
+
+    COALESCE("値引クーポン_税込_raw2", 0) AS "値引クーポン_税込",
+    CASE WHEN COALESCE("値引クーポン_税込_raw2", 0) = 0 THEN 0 ELSE FLOOR(COALESCE("値引クーポン_税込_raw2", 0) / 1.1)::int END AS "値引クーポン_税抜",
+
+    COALESCE("値引キャンペーン_税込_raw", 0) AS "値引キャンペーン_税込",
+    CASE WHEN COALESCE("値引キャンペーン_税込_raw", 0) = 0 THEN 0 ELSE FLOOR(COALESCE("値引キャンペーン_税込_raw", 0) / 1.1)::int END AS "値引キャンペーン_税抜"
+
 FROM data_with_min_priority_2;
